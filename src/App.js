@@ -1,12 +1,16 @@
 import React from "react";
 import Header from "./components/Header";
 import { Outlet } from "react-router-dom";
+import Sidebar from "./components/Sidebar";
 
 const App = () => {
   return (
-    <div className="App h-screen">
+    <div className="App ">
       <Header />
-      <Outlet />
+      <div className="flex w-full">
+        <Sidebar />
+        <Outlet />
+      </div>
     </div>
   );
 };

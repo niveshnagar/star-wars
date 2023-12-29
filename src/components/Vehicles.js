@@ -20,22 +20,28 @@ const Vehicles = () => {
   };
 
   return (
-    <div className="films-card">
-      <h2 className="px-4 py-2 text-3xl text-white font-bold bg-[#9EC8B9]">
+    <div className="vehicles-card w-full rounded-md m-2">
+      <h2 className="px-4 py-2 text-3xl text-white font-bold bg-gray-600 rounded-t-md">
         Vehicles
       </h2>
-      <DataTable
-        value={vehiclesList}
-        showGridlines
-        paginator
-        rows={5}
-        tableStyle={{ minWidth: "50rem" }}
-      >
-        <Column field="name" sortable header="Name"></Column>
-        <Column field="model" sortable header="Model"></Column>
-        <Column field="passengers" sortable header="Passengers"></Column>
-        <Column field="cost_in_credits" sortable header="Cost"></Column>
-      </DataTable>
+      {vehiclesList.length !== 0 ? (
+        <DataTable
+          value={vehiclesList}
+          showGridlines
+          paginator
+          rows={5}
+          tableStyle={{ minWidth: "50rem" }}
+        >
+          <Column field="name" sortable header="Name"></Column>
+          <Column field="model" sortable header="Model"></Column>
+          <Column field="passengers" sortable header="Passengers"></Column>
+          <Column field="cost_in_credits" sortable header="Cost"></Column>
+        </DataTable>
+      ) : (
+        <p className="text-2xl font-bold flex justify-center items-center h-52">
+          Loading...
+        </p>
+      )}
     </div>
   );
 };

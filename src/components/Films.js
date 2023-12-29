@@ -18,19 +18,29 @@ const Films = () => {
   };
 
   return (
-    <div className="films-card">
-      <h2 className="px-4 py-2 text-3xl text-white font-bold bg-[#9EC8B9]">Films</h2>
-      <DataTable
-        value={filmsList}
-        showGridlines
-        paginator
-        rows={5}
-        tableStyle={{ minWidth: "50rem" }}
-      >
-        <Column field="title" sortable header="Title"></Column>
-        <Column field="director" sortable header="Director"></Column>
-        <Column field="release_date" sortable header="Release Date"></Column>
-      </DataTable>
+    <div className="films-card w-full m-2">
+      <h2 className="px-4 py-2 text-3xl text-white font-bold bg-gray-600 rounded-t-md">
+        Films
+      </h2>
+      {filmsList.length !== 0 ? (
+        <DataTable
+          className="rounded-b-md"
+          value={filmsList}
+          showGridlines
+          paginator
+          rows={5}
+          tableStyle={{ minWidth: "50rem" }}
+        >
+          <Column field="title" sortable header="Title"></Column>
+          <Column field="director" sortable header="Director"></Column>
+          <Column field="release_date" sortable header="Release Date"></Column>
+        </DataTable>
+      ) : (
+        <p className="text-2xl font-bold flex justify-center items-center h-52">
+          Loading...
+        </p>
+      )}
+      :
     </div>
   );
 };

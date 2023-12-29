@@ -21,22 +21,28 @@ const People = () => {
   };
 
   return (
-    <div className="films-card">
-      <h2 className="px-4 py-2 text-3xl text-white font-bold bg-[#9EC8B9]">
+    <div className="people-card w-full rounded-md m-2">
+      <h2 className="px-4 py-2 text-3xl text-white font-bold bg-gray-600 rounded-t-md">
         People
       </h2>
-      <DataTable
-        value={peopleList}
-        showGridlines
-        paginator
-        rows={5}
-        tableStyle={{ minWidth: "50rem" }}
-      >
-        <Column field="name" sortable header="Name"></Column>
-        <Column field="gender" sortable header="Gender"></Column>
-        <Column field="height" sortable header="Height"></Column>
-        <Column field="mass" sortable header="Mass"></Column>
-      </DataTable>
+      {peopleList.length !== 0 ? (
+        <DataTable
+          value={peopleList}
+          showGridlines
+          paginator
+          rows={5}
+          tableStyle={{ minWidth: "50rem" }}
+        >
+          <Column field="name" sortable header="Name"></Column>
+          <Column field="gender" sortable header="Gender"></Column>
+          <Column field="height" sortable header="Height"></Column>
+          <Column field="mass" sortable header="Mass"></Column>
+        </DataTable>
+      ) : (
+        <p className="text-2xl font-bold flex justify-center items-center h-52">
+          Loading...
+        </p>
+      )}
     </div>
   );
 };
